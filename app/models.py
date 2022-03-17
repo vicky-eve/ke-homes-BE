@@ -45,6 +45,7 @@ class House(db.Model):
     agent = db.Column(db.String(255))
     landlord = db.Column(db.String(255))
     location = db.Column(db.Text())
+    description = db.Column(db.Text())
     pic_path = db.Column(db.String())
     price = db.Column(db.Text())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -56,7 +57,7 @@ class House(db.Model):
         db.session.commit()
 
     def __repr__(self):
-        return f'House {self.price}'
+        return f'House {self.description}'
 
 class Agent(db.Model):
     __tablename__ = 'agents'
